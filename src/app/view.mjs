@@ -57,8 +57,8 @@ export default class View {
     formatDateTime() {
         const date = new Date();
         const month = date.toLocaleDateString('default', { month: 'long' });
-        const day = date.getDay();
-        const formatedMonth = month.split('')[0].toUpperCase() + month.slice(1)
+        const day = date.toLocaleDateString('default', { day: '2-digit' });
+        const formatedMonth = month.split('')[0].toUpperCase() + month.slice(1);
 
         this.time.innerHTML = `${formatedMonth}, ${day}`;
     }

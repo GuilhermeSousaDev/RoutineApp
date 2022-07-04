@@ -1,6 +1,7 @@
 export default class Controller {
-    constructor({ view }) {
+    constructor({ view, api }) {
         this.view = view;
+        this.api = api;
     }
 
     static initialize(dependencies) {
@@ -11,6 +12,7 @@ export default class Controller {
 
     _init() {
         this.viewConfig();
+        this.apiConfig();
     }
 
     viewConfig() {
@@ -18,5 +20,9 @@ export default class Controller {
         this.view.messagesSectionToggle();
         this.view.themeModeToggle();
         this.view.formatDateTime();
+    }
+
+    apiConfig() {
+        this.api.showRegisterProjectArea();
     }
 }

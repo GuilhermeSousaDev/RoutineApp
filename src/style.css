@@ -860,3 +860,29 @@ button, a {
     top: 10px;
   }
 }
+
+.register-project-area {
+  display: none;
+  position: absolute;
+  top: 10;
+  right: 0;
+  left: 10;
+  bottom: 0;
+  background-color: var(--projects-section);
+  border-radius: 32px;
+  padding: 32px 32px 0 32px;
+  overflow: hidden;
+  height: 200px;
+  z-index: 1;
+}
+
+/*.projects-section {
+  flex: 2;
+  background-color: var(--projects-section);
+  border-radius: 32px;
+  padding: 32px 32px 0 32px;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+} */

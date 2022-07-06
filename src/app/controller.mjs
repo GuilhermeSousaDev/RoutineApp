@@ -23,6 +23,7 @@ export default class Controller {
     }
 
     apiConfig() {
-        this.api.showRegisterProjectArea();
+        this.api.showRegisterProjectNameArea();
+        this.api.showRegisterUsersAndProgressArea();
     }
 }

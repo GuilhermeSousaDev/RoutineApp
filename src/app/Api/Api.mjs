@@ -1,9 +1,13 @@
 export default class Api {
+    #projectName;
+    #oldRegisterProjectAreaHtml;
+
     constructor() {
-        this.btnIcon = document.querySelector('.btn-icon');
+        this.addBtn = document.querySelector('.btn-add');
         this.btnNextStep = document.querySelector('.btn-shadow');
 
         this.registerProjectArea = document.querySelector('.register-project-area');
+        this.registerNameInput = document.querySelector('.register-name-input');
     }
 
     #removeAreaEffect(areaStyle) {
@@ -12,8 +16,8 @@ export default class Api {
     }
 
     #showAreaEffect(areaStyle) {
-        setTimeout(() => areaStyle.top = '180px', 300);
         areaStyle.display = 'block';
+        setTimeout(() => areaStyle.top = '180px', 100);
     }
 
     #toggleShowRegisterProjectNameArea() {
@@ -22,14 +26,46 @@ export default class Api {
             this.#removeAreaEffect(areaStyle) : this.#showAreaEffect(areaStyle);
     }
 
+    #renderOldStepRegisterProject(oldRegisterProjectAreaHtml) {
+        this.registerProjectArea.innerHTML = oldRegisterProjectAreaHtml;
+    }
+
+    #renderNextStepRegisterProject() {
+        if (this.registerNameInput.value) {
+            this.#projectName = this.registerNameInput.value;
+
+            this.#oldRegisterProjectAreaHtml = this.registerProjectArea.innerHTML;
+
+            console.log(this.#oldRegisterProjectAreaHtml);
+
+            this.registerProjectArea.innerHTML = `
+                <div class="register-project-container">
+                    <p class="register-app-name">Routine - Project Create</p>
+                    <p class="register-app-name">${this.#projectName}</p>
+                    <div class="register-wrapper">
+                        <input 
+                        class="register-name-input" 
+                        type="text" 
+                        placeholder="Tell about this project routine"
+                        >
+                    </div>
+                    <button 
+                        onclick='${console.log('teste')}' 
+                        class="add-btn btn-shadow">&#129044;
+                    </button>
+                </div>
+            `;
+        }
+    }
+
     showRegisterProjectNameArea() {
-        this.btnIcon.addEventListener(
+        this.addBtn.addEventListener(
             'click', 
             () => this.#toggleShowRegisterProjectNameArea()
         );
     }
 
-    showRegisterUsersAndProgressArea() {
-        this.btnNextStep.addEventListener('click', () => console.log('click'))
+    showNextStepRegisterProject() {
+        this.btnNextStep.addEventListener('click', () => this.#renderNextStepRegisterProject());
     }
 }

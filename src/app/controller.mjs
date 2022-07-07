@@ -24,6 +24,6 @@ export default class Controller {
 
     apiConfig() {
         this.api.showRegisterProjectNameArea();
-        this.api.showRegisterUsersAndProgressArea();
+        this.api.showNextStepRegisterProject();
     }
 }

@@ -1,7 +1,7 @@
 export default class Controller {
-    constructor({ view, api }) {
+    constructor({ view, registerProject }) {
         this.view = view;
-        this.api = api;
+        this.registerProject = registerProject;
     }
 
     static initialize(dependencies) {
@@ -12,7 +12,7 @@ export default class Controller {
 
     _init() {
         this.viewConfig();
-        this.apiConfig();
+        this.registerProjectConfig();
     }
 
     viewConfig() {
@@ -22,8 +22,8 @@ export default class Controller {
         this.view.formatDateTime();
     }
 
-    apiConfig() {
-        this.api.showRegisterProjectNameArea();
-        this.api.showNextStepRegisterProject();
+    registerProjectConfig() {
+        this.registerProject.showRegisterProjectNameArea();
+        this.registerProject.showNextStepRegisterProject();
     }
 }

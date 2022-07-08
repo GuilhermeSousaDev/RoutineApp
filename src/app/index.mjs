@@ -1,12 +1,12 @@
 import controller from './controller.mjs';
 
 import View from './view.mjs';
-import Api from './Api/Api.mjs';
+import RegisterProject from './modules/RegisterProject/index.mjs';
 
 const view = new View();
-const api = new Api();
+const registerProject = new RegisterProject();
 
 controller.initialize({
     view,
-    api
+    registerProject,
 });

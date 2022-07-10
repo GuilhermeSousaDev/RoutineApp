@@ -1,6 +1,6 @@
 import controller from './controller.mjs';
 
-import View from './view.mjs';
+import View from './modules/View/index.mjs';
 import RegisterProject from './modules/RegisterProject/index.mjs';
 
 const view = new View();

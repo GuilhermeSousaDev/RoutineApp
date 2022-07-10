@@ -8,4 +8,9 @@ export default class Effects {
         areaStyle.display = 'block';
         setTimeout(() => areaStyle.top = '180px', 100);
     }
+
+    toggleShowRegisterProjectNameArea(areaStyle) {
+        areaStyle.display === 'block'? 
+            this.removeAreaEffect(areaStyle) : this.showAreaEffect(areaStyle);
+    }
 }

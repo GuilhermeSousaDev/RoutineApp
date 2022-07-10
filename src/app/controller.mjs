@@ -23,7 +23,7 @@ export default class Controller {
     }
 
     registerProjectConfig() {
-        this.registerProject.showRegisterProjectNameArea();
-        this.registerProject.showNextStepRegisterProject();
+        this.registerProject.showRegisterProjectArea();
+        this.registerProject.registerProject();
     }
 }

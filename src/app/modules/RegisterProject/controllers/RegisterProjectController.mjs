@@ -1,59 +1,26 @@
 export default class RegisterProjectController {
-    constructor({ effects }) {
+    constructor({ effects, render }) {
         this.effects = effects;
+        this.render = render;
 
-        this.addBtn = document.querySelector('.btn-add');
+        this.btnAdd = document.querySelector('.btn-add');
         this.btnNextStep = document.querySelector('.btn-shadow');
         this.registerProjectArea = document.querySelector('.register-project-area');
         this.registerNameInput = document.querySelector('.register-name-input');
     }
 
-    #toggleShowRegisterProjectNameArea() {
-        let areaStyle = this.registerProjectArea.style;
-        areaStyle.display === 'block'? 
-            this.effects.removeAreaEffect(areaStyle) : this.effects.showAreaEffect(areaStyle);
-    }
+    showRegisterProjectArea() {
+        const registerProjectAreaStyle = this.registerProjectArea.style;
 
-    #renderOldStepRegisterProject(oldRegisterProjectAreaHtml) {
-        this.registerProjectArea.innerHTML = oldRegisterProjectAreaHtml;
-    }
-
-    #renderNextStepRegisterProject() {
-        if (this.registerNameInput.value) {
-            const projectName = this.registerNameInput.value;
-            const oldRegisterProjectAreaHtml = this.registerProjectArea.innerHTML;
-
-            this.registerProjectArea.innerHTML = `
-                <div class="register-project-container">
-                    <p class="register-app-name">Routine - Project Create</p>
-                    <p class="register-app-name">${projectName}</p>
-                    <div class="register-wrapper">
-                        <input 
-                        class="register-name-input" 
-                        type="text" 
-                        placeholder="Tell about this project routine"
-                        >
-                    </div>
-                    <button class="btn-add btn-shadow add-btn">&#129044;</button>
-                </div>
-            `;
-
-            document.querySelector('.btn-add')
-                .addEventListener(
-                    'click', 
-                    () => this.#renderOldStepRegisterProject(oldRegisterProjectAreaHtml)
-                );
-        }
-    }
-
-    showRegisterProjectNameArea() {
-        this.addBtn.addEventListener(
+        this.btnAdd.addEventListener(
             'click', 
-            () => this.#toggleShowRegisterProjectNameArea()
+            () => this.effects.toggleShowRegisterProjectNameArea(registerProjectAreaStyle)
         );
     }
 
-    showNextStepRegisterProject() {
-        this.btnNextStep.addEventListener('click', () => this.#renderNextStepRegisterProject());
+    registerProject() {
+        this.btnNextStep.addEventListener('click', () => {
+            console.log('create');
+        });
     }
 }

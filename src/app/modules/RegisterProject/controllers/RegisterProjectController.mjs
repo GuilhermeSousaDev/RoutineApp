@@ -23,8 +23,8 @@ export default class RegisterProjectController {
         );
     }
 
-    async registerProject() {
-        this.btnNextStep.addEventListener('click', () => {
+    registerProject() {
+        this.btnNextStep.addEventListener('click', async () => {
             const name = this.registerNameInput.value;
             const details = this.registerDetailsInput.value;
 

@@ -1,7 +1,8 @@
 export default class Controller {
-    constructor({ view, registerProject }) {
+    constructor({ view, registerProject, profile }) {
         this.view = view;
         this.registerProject = registerProject;
+        this.profile = profile;
     }
 
     static initialize(dependencies) {
@@ -13,6 +14,7 @@ export default class Controller {
     _init() {
         this.viewConfig();
         this.registerProjectConfig();
+        this.profileConfig();
     }
 
     viewConfig() {
@@ -25,5 +27,9 @@ export default class Controller {
     registerProjectConfig() {
         this.registerProject.showRegisterProjectArea();
         this.registerProject.registerProject();
+    }
+
+    profileConfig() {
+        this.profile.loadProfile();
     }
 }

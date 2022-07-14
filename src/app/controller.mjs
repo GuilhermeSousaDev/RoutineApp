@@ -31,5 +31,6 @@ export default class Controller {
 
     profileConfig() {
         this.profile.loadProfile();
+        this.profile.showLoginForm();
     }
 }

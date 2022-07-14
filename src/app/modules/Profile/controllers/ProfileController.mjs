@@ -1,9 +1,12 @@
 export default class ProfileController {
     token;
     
-    constructor() {
+    constructor({ render }) {
+        this.render = render;
+
         this.token = localStorage.getItem('token');
         this.profileBtn = document.querySelector('.profile-btn');
+        this.loginContainer = document.querySelector('.login-container');
     }
 
     loadProfile() {
@@ -21,5 +24,12 @@ export default class ProfileController {
                 <span>Login</span>
             `;
         }
+    }
+
+    showLoginForm() {
+        this.profileBtn.addEventListener(
+            'click', 
+            () => this.render.toggleShowLoginContainer(this.loginContainer.style)
+        );
     }
 }

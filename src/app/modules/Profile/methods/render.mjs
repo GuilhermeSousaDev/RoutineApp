@@ -8,7 +8,8 @@ export default class Render {
     }
 
     toggleShowLoginContainer(areaStyle) {
-        areaStyle.display === 'block'? 
-            this.removeAreaEffect(areaStyle) : this.showAreaEffect(areaStyle);
+        areaStyle.visibility === 'visible'? 
+            areaStyle.visibility = 'hidden' : areaStyle.visibility = 'visible';
+            //this.removeAreaEffect(areaStyle) : this.showAreaEffect(areaStyle);
     }
 }

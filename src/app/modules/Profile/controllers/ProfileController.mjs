@@ -7,6 +7,7 @@ export default class ProfileController {
         this.token = localStorage.getItem('token');
         this.profileBtn = document.querySelector('.profile-btn');
         this.loginContainer = document.querySelector('.login-container');
+        this.closeLoginAreaBtn = document.querySelector('.close-button');
     }
 
     loadProfile() {
@@ -30,6 +31,13 @@ export default class ProfileController {
         this.profileBtn.addEventListener(
             'click', 
             () => this.render.toggleShowLoginContainer(this.loginContainer.style)
+        );
+    }
+
+    closeLoginArea() {
+        this.closeLoginAreaBtn.addEventListener(
+            'click', 
+            () => this.loginContainer.style.visibility = 'hidden'
         );
     }
 }

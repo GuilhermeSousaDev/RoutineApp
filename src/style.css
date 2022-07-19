@@ -940,7 +940,78 @@ button, a {
 
 /* Auth containers style init */
 .login-container {
-  display: none;
+  visibility: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  width: 65%;
+  height: 80%;
+  top: 10%;
+  left: 17%;
+  border-radius: 20px;
+  border: 1px solid var(--link-color-active-bg);
+  background: var(--app-container);
+  color: var(--main-color);
+  z-index: 999;
+}
+
+.close-button {
+  position: fixed;
+  top: 79px;
+  left: 680px;
+  border-radius: 5px;
+}
+
+.login-button {
+  color: #fff;
+  background-color: var(--link-color-active-bg) ;
+  border-radius: 10px;
+  width: 60px;
+  height: 30px;
+  transition: 0.5s;
+}
+
+.login-button:hover {
+  color: #fff;
+  background-color: var(--button-bg);
+  border-radius: 10px;
+  width: 70px;
+  height: 30px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form > input {
+  border: none;
+  flex: 1;
+  outline: none;
+  height: 100%;
+  border-radius: 10px;
+  padding: 0 20px;
+  font-size: 16px;
+  background-color: var(--search-area-bg);
+  border: 1px solid var(--main-color);
+  color: var(--main-color);
+  margin-bottom: 15px;
+}
+
+.login-form > input:focus {
+  border: none;
+  flex: 1;
+  outline: none;
+  height: 100%;
+  border-radius: 10px;
+  padding: 0 20px;
+  font-size: 16px;
+  background-color: var(--search-area-bg);
+  border: 3px solid var(--main-color);
+  color: var(--main-color);
+  margin-bottom: 15px;
 }
 
 /*.projects-section {

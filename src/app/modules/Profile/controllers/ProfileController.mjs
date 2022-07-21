@@ -37,7 +37,7 @@ export default class ProfileController {
     closeLoginArea() {
         this.closeLoginAreaBtn.addEventListener(
             'click', 
-            () => this.loginContainer.style.visibility = 'hidden'
+            () => this.render.removeAreaEffect(this.loginContainer.style)
         );
     }
 }

@@ -948,20 +948,25 @@ button, a {
   position: fixed;
   width: 65%;
   height: 80%;
-  top: 10%;
+  top: -80%;
   left: 17%;
   border-radius: 20px;
   border: 1px solid var(--link-color-active-bg);
   background: var(--app-container);
   color: var(--main-color);
   z-index: 999;
+  transition: 0.5s;
 }
 
 .close-button {
-  position: fixed;
-  top: 79px;
-  left: 680px;
   border-radius: 5px;
+  transform: translateY(-310px);
+  margin-left: 87%;
+}
+
+.close-button:hover {
+  background-color: var(--button-bg);
+  color: #f3f6fd;
 }
 
 .login-button {

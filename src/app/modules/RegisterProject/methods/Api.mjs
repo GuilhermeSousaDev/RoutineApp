@@ -1,4 +1,4 @@
-import { apiConfig } from '../config/apiConfig.mjs';
+import { apiConfig } from '../../../config/apiConfig.mjs';
 
 export default class Api {
     constructor() {

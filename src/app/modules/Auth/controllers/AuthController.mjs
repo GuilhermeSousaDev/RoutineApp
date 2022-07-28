@@ -8,12 +8,11 @@ export default class AuthController {
     }
 
     authenticate() {
-        const email = this.inputs[0].value;
-        const password = this.inputs[1].value;
+        this.loginButton.addEventListener('click', async () => {
+            const email = this.inputs[0].value;
+            const password = this.inputs[1].value;
 
-        this.loginButton.addEventListener(
-            'click', 
-            async () => this.authMethods.handleAuthenticate({ email, password })
-        );
+            this.authMethods.handleAuthenticate({ email, password });
+        });
     }
 }

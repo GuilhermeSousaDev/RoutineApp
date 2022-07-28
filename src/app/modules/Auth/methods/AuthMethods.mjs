@@ -1,15 +1,21 @@
 import { apiConfig } from '../../../config/apiConfig.mjs';
 
 export default class AuthMethods {
-    handleAuthenticate({ email, password }) {
+    async handleAuthenticate({ email, password }) {
         if (email.length && password.length) {
-            const req = await fetch(`${apiConfig.url}/session`, { 
-                method: "POST",
-                body: { email, password }
-            });
-            const res = await req.json();
+            const form = new FormData();
 
-            console.log(res);
+            form.append('email', email);
+            form.append('password', password);
+
+            const request = await fetch(`${apiConfig.url}/session`, {
+                method: "POST",
+                body: form,
+            });
+
+            const response = await request.json();
+
+            console.log(response);
         }
     }
 }

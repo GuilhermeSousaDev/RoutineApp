@@ -942,7 +942,7 @@ button, a {
 .login-container {
   visibility: visible;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   position: fixed;
@@ -958,9 +958,13 @@ button, a {
   transition: 0.5s;
 }
 
+.login-container h1 {
+  margin-bottom: 20px;
+}
+
 .close-button {
   border-radius: 5px;
-  transform: translateY(-310px);
+  transform: translateY(-160px);
   margin-left: 87%;
 }
 
@@ -976,6 +980,7 @@ button, a {
   width: 60px;
   height: 30px;
   transition: 0.5s;
+  transform: translateY(30px);
 }
 
 .login-button:hover {
@@ -989,6 +994,7 @@ button, a {
 .login-form {
   display: flex;
   flex-direction: column;
+  transform: translateY(15px)
 }
 
 .login-form > input {

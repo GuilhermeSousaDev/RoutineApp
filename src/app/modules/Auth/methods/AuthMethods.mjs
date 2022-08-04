@@ -19,6 +19,7 @@ export default class AuthMethods {
             const response = await request.json();
 
             localStorage.setItem('token', response.token);
+            location.reload();
         }
     }
 }

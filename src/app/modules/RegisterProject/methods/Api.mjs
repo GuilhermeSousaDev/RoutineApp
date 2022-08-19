@@ -18,15 +18,21 @@ export default class Api {
     }
 
     async createProject({ name, details }) {
-        const project = await fetch(`${apiConfig.url}/projects`, {
-            method: "POST",
-            body: { name, details },
-            headers: {
-                Authorization: this.token,
-            }
-        });
+        if (this.token) {
+            const { id: userId } = await (await fetch(`${apiConfig.url}/session/${this.token}`)).json();
 
-        return project;
+            const data = { name, details, creator_user: userId, participating_users: null };
+
+            const req = await fetch(`${apiConfig.url}/project`, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            return req.json();
+        }
     }
 
     async deleteProject(id) {
